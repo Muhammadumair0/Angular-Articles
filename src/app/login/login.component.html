@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<div class="login">
+  <h1 class="login-heading">Login Here</h1>
+  <form [formGroup]="form" (submit)="onLoginSubmit()">
+    <div class="login-form-div">
+      <div>
+        <label>UserName:</label>
+        <input type="text" class="login-form-div-input1">
+      </div>
+      <div>
+        <label>Password:&nbsp;</label>
+        <input type="password" class="login-form-div-input2">
+      </div>
+    </div>
+    <input class="form-button" value="Login" type="submit">
+  </form>
+</div>
