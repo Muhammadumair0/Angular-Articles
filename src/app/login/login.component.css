@@ -1,0 +1,96 @@
+.login {
+    display: grid;
+    grid-template-rows: [heading]20vh[heading-end form] 80vh[form-end];
+}
+
+.login-heading {
+    grid-row: heading/heading-end;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+form {
+    background: red;
+    grid-row: form/form-end;
+    display: grid;
+    grid-template-rows: 25vh [input]25vh[input-end button] 5vh[button-end] 25vh;
+    justify-items: center;
+    align-items: center;
+}
+
+.login-form-div {
+    grid-row: input/input-end;
+    grid-gap: 2vh;
+    align-items: center;
+    justify-items: center;
+}
+
+.form-button {
+    grid-row: button/button-end;
+}
+
+label {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.form-button {
+    -moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    -webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+    background: -moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c', GradientType=0);
+    background-color: #768d87;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #566963;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 76px;
+    text-decoration: none;
+    text-shadow: 0px -1px 0px #2b665e;
+}
+
+.form-button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+    background: -moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87', GradientType=0);
+    background-color: #6c7c7c;
+}
+
+.form-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.login-form-div-input1, .login-form-div-input2 {
+    border-color: #cccccc;
+    padding: 11px;
+    font-size: 26px;
+    border-width: 6px;
+    border-radius: 3px;
+    border-style: groove;
+    box-shadow: 0px 0px 5px 0px rgba(42, 42, 42, .75);
+    font-style: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.login-form-div-input1:focus, .login-form-div-input2:focus {
+    outline: none;
+}
