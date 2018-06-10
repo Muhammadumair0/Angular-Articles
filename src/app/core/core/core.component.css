@@ -1,0 +1,19 @@
+.app {
+    display: grid;
+    grid-template-rows: 100vh 50vh 20vh;
+}
+
+.app-first-section {
+    height: 100vh;
+    background-color: red;
+}
+
+.app-second-section {
+    height: 50vh;
+    background-color: orange;
+}
+
+.app-footer {
+    height: 20vh;
+    background-color: blue;
+}

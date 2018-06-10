@@ -1,0 +1,33 @@
+.nav {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: auto;
+    background-color: blue;
+    height: 100%;
+    grid-template-columns: [starts] 10vw[starts-end] 50vw [first]10vw[first-end second] 10vw[second-end third] 10vw[third-end];
+}
+
+.nav-start {
+    grid-column: starts/starts-end;
+}
+
+.nav-first {
+    grid-column: first/first-end;
+}
+
+.nav-second {
+    grid-column: second/second-end;
+}
+
+.nav-third {
+    grid-column: third/third-end;
+}
+
+nav {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline;
+}

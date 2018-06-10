@@ -1,0 +1,60 @@
+.first {
+    display: grid;
+    grid-template-rows: [nav]15vh[nav-end button] 85vh[button-end];
+}
+
+.first-nav {
+    grid-row: nav/nav-end;
+}
+
+.first-button {
+    grid-row: button/button-end;
+    background-color: purple;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+
+
+
+.first-button button {
+	-moz-box-shadow:inset 50px -1px 43px -18px #91b8b3;
+	-webkit-box-shadow:inset 50px -1px 43px -18px #91b8b3;
+	box-shadow:inset 50px -1px 43px -18px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:31px;
+	-webkit-border-radius:31px;
+	border-radius:31px;
+	border:4px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:24px;
+	font-weight:bold;
+	padding:31px 76px;
+	text-decoration:none;
+	text-shadow:0px 0px 18px #2b665e;
+}
+.first-button button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.first-button button:active {
+	position:relative;
+	top:1px;
+}
