@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { FirstSectionComponent } from './core/first-section/first-section.component';
@@ -13,9 +13,10 @@ import { ReadArticlesComponent } from './read-articles/read-articles.component';
 import { WriteArticleComponent } from './write-article/write-article.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { CoreComponent } from './core/core/core.component';
 
 import { routes } from "./app.routing";
-import { CoreComponent } from './core/core/core.component';
+import { AuthService } from "./shared/services/auth.service";
 
 
 @NgModule({
@@ -29,9 +30,10 @@ import { CoreComponent } from './core/core/core.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

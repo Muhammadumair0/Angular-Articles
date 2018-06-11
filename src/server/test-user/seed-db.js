@@ -20,10 +20,13 @@ function seedCollection(collectionName, initialRecords) {
 
             db.remove();
 
-            initialRecords.password = bcrypt.hashSync(initialRecords.password, 10);
+            initialRecords.forEach((item) => {
+                item.password = bcrypt.hashSync(item.password, 10);
+            });
 
 
-            db.insert(initialRecords, (err, result) => {
+
+            db.insertMany(initialRecords, (err, result) => {
 
                 console.log(`Number of data inserted:${result.insertedCount}`);
                 console.log("closing connection!!");

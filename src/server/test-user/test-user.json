@@ -1,11 +1,72 @@
-{
-    "name": {
-        "fisrtNme": "Adalberto",
-        "lastName": "Biolos"
+[
+    {
+        "name": {
+            "fisrtNme": "Adalberto",
+            "lastName": "Biolos"
+        },
+        "password": "ahmed",
+        "title": "Focus on your ideal buyer",
+        "imageUrl": {
+            "profile": "http://www.mens-hairstyle.com/wp-content/uploads/2017/06/Men-with-Full-Beard.jpg",
+            "image": "http://don16obqbay2c.cloudfront.net/wp-content/uploads/buyers_journey.jpg"
+        },
+        "publishDate": "03/25/2015",
+        "description": "When you write a product description with a huge crowd of buyers in mind, your descriptions become wishy-washy and you end up addressing no one at all.The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.   This is how Think Geek starts the product description of an LED Flashlight.When it comes to writing your own product descriptions, start by imagining your ideal buyer. What kind of humor does he or she appreciate (if any)? What words does he use? What words does he hate? Is he okay with words like sucky and crappy? What questions does he ask that you should answer? Consider how you would speak to your ideal buyer if you were selling your product in store, face-to-face. Now try and incorporate that language into your website so you can have a similar conversation online that resonates more deeply."
     },
-    "password":"ahmed",
-    "title": "Focus on your ideal buyer",
-    "imageUrl": "http://www.mens-hairstyle.com/wp-content/uploads/2017/06/Men-with-Full-Beard.jpg",
-    "publishDate": "03/25/2015",
-    "description": "When you write a product description with a huge crowd of buyers in mind, your descriptions become wishy-washy and you end up addressing no one at all.The best product descriptions address your ideal buyer directly and personally. You ask and answer questions as if you’re having a conversation with them. You choose the words your ideal buyer uses. You use the word you.   This is how Think Geek starts the product description of an LED Flashlight.When it comes to writing your own product descriptions, start by imagining your ideal buyer. What kind of humor does he or she appreciate (if any)? What words does he use? What words does he hate? Is he okay with words like sucky and crappy? What questions does he ask that you should answer? Consider how you would speak to your ideal buyer if you were selling your product in store, face-to-face. Now try and incorporate that language into your website so you can have a similar conversation online that resonates more deeply."
-}
+    {
+        "name": {
+            "fisrtNme": "Shawn",
+            "lastName": "Wilkins"
+        },
+        "password": "ahmed123",
+        "title": "How to Start a Business in Australia",
+        "imageUrl": {
+            "profile": "https://www.menshairstylesnow.com/wp-content/uploads/2017/05/Best-Beards-Thick-Man-Beard.jpg",
+            "image": "https://www.paymill.com/wp-content/uploads/2018/03/hurdles-ecommerce.png"
+        },
+        "publishDate": "04/22/2015",
+        "description": "Embarking on a new business venture is both exciting and terrifying in equal measure. On one hand, you’ll finally be the boss; the master of your own destiny who’s pursuing success in something that you’re truly passionate about. On the other hand, you now have a laundry list of things that you need to tick off before you even start to make sure everything kicks off smoothly. Whereas working for someone else alleviates these responsibilities, the startup owner takes on all these stresses themselves. Not only that, every country has different laws, regulations and requirements to get your business up and running. So, even if you’ve started a business in one country, you’ve still got to do a pile of research to make sure you do it properly in another."
+    },
+    {
+        "name": {
+            "fisrtNme": "Dawson",
+            "lastName": "Farmer"
+        },
+        "password": "ahmed144",
+        "title": "7 Tried-and-True Strategies SaaS Businesses Are Using to Grow",
+        "imageUrl": {
+            "profile": "https://typeset-beta.imgix.net/elite-daily/2016/06/07173235/fckboy-with-beard.jpg",
+            "image": "https://www.osiaffiliate.com/blog/wp-content/uploads/2013/06/growyourbusiness.jpg"
+        },
+        "publishDate": "03/25/2018",
+        "description": "Seven years later, his thesis was right -- software as a service (SaaS) companies have and will continue to takeover or disrupt large parts of the economy.This change has been fueled by technology: It's now easier and cheaper than ever to develop software, and with 4 billion people using the internet as of 2018, the potential customer base for SaaS companies is vast.This perfect storm of rapidly lowering barriers to entry, and access to more customers, has seen software take precedence over hardware.While technological advances have spurred software development, it's the subscription model favored by many SaaS businesses that has transformed it into a thriving industry. SaaS companies typically charge a subscription for their product, which is delivered and stored within the cloud. The subscription business model means companies reach profitability over time and must continually provide value, otherwise their clients will become at risk of churning.View our free guide to growing your SaaS company.Clients often prefer being able to make smaller, monthly payments, while investors like businesses that generate predictable recurring revenue, which makes it easier to forecast and understand the business' health.And when it comes to business health, growth is critical to success. That's why we've put together a roundup of strategies SaaS businesses can use to ramp up their lead generation efforts. "
+    },
+    {
+        "name": {
+            "fisrtNme": "Adam",
+            "lastName": "Armstrong"
+        },
+        "password": "ahmed155",
+        "title": "How Your Blog Needs to Evolve in the Age of AI-Powered Voice Search",
+        "imageUrl": {
+            "profile": "https://www.demilked.com/magazine/wp-content/uploads/2016/06/60-year-old-man-becomes-fashion-model-philippe-dumas-6.jpg",
+            "image": "https://cdn.purposedrivenpromotion.com/wp-content/uploads/2018/02/VoiceSearch2018-1024x482.png"
+        },
+        "publishDate": "03/25/2014",
+        "description": "Search is changing thanks to artificial intelligence.It’s not just that search engines are using AI to categorize and deliver results (though they are).It’s that the power of AI is making new, better types of search possible.Searches are becoming more personalized. Search engines now aim to deliver the right result for your particular needs.Click here to download our free ebook on how to start a successful blog for your business or project.Location and context are becoming more important, too. We’re searching more on-the-go. We use smartphones to discover results in real-time, just before we act or buy.Voice search is on the rise, thanks to advancements in AI. Natural language processing helps systems like Alexa, Siri and Google Assistant "
+    },
+    {
+        "name": {
+            "fisrtNme": "Irwin",
+            "lastName": "Walters"
+        },
+        "password": "ahmed156",
+        "title": "Unriddled: Facebook in Brussels, Launch of the GDPR, and More Tech News You Need",
+        "imageUrl": {
+            "profile": "https://i.pinimg.com/originals/2d/fd/39/2dfd3967822d6e0acf0fef54e1f51a29.jpg",
+            "image": "https://cdn.fstoppers.com/styles/large-16-9/s3/wp-content/uploads/2012/10/facebook-changes-algorithm.jpg"
+        },
+        "publishDate": "03/25/2016",
+        "description": "Earlier this month, the U.S. House of Representatives released a record of more than 3,000 political ads the Internet Research Agency (IRA) in Russia bought and ran on Facebook to influence the outcome of the 2016 U.S. Presidential Election. To demonstrate the same transparency, Facebook has now launched a public archive of every political ad ever run on the platform.Facebook's political ad archive produces information on each ad's cost, target audience, and performance. However, the tool only allows users to search for ads based on the subject or person featured in the ad, rather than the ad's date or sponsor -- two things that many people are disappointed they won't be able to see, given the thousands of ads originating from the IRA. Read the full story >>If you missed the General Data Protection Regulation's (GDPR) rollout, check your inbox. Every company you've interacted with lately likely emailed you with updates to their privacy policies. The GDPR officially took effect on Friday, May 25th, and businesses everywhere -- not just in Europe -- have adjusted their terms of service to comply with the GDPR to protect customers who might live and do business in Europe.While changes to data protection laws might connote rough road for advertisers, who depend on insight into their customers' profiles and behaviors, some see it as a necessary measure to make their marketing content that much more respectful of the buyer's journey. Read HubSpot CEO Brian Halligan's recent note on GDPR >>"
+    }
+]
