@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { routes } from './update-article-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { UpdateArticleRoutingModule } from './update-article-routing.module';
+import { UpdateArticleComponent } from "./update-article.component";
 
 @NgModule({
   imports: [
     CommonModule,
-    UpdateArticleRoutingModule
+    ReactiveFormsModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: []
+  declarations: [UpdateArticleComponent]
 })
 export class UpdateArticleModule { }

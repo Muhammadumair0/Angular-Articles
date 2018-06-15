@@ -25,5 +25,18 @@ export class AuthService {
 
   }
 
+  getAllData() {
+    return this.http.get(this.domain + "api/allArticles").map((res) => {
+      return res.json();
+    });
+  }
+
+  postArtilce(data) {
+    return this.http.put(this.domain + "api/postArticle", data, this.RequestOptions()).map((res) => {
+      console.log(res.json());
+      return res.json();
+    })
+  }
+
 
 }

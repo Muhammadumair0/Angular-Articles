@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+import { ReadArticlesComponent } from "./read-articles.component";
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class ReadArticlesRoutingModule { }
+export const routes: Routes = [
+  {
+    path: "articles",
+    component: ReadArticlesComponent
+  }
+];

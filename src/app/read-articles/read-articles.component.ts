@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'app-read-articles',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadArticlesComponent implements OnInit {
 
-  constructor() { }
+  allData: any[];
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.getAllData().subscribe(data => {
+      this.allData = data.results;
+    })
   }
 
 }

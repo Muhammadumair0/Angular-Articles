@@ -1,0 +1,88 @@
+.main {
+    display: grid;
+    grid-template-rows: 100vh;
+    border-bottom: 2px solid black;
+    background-color: rgb(105, 76, 8);
+    grid-template-columns: [side]30vw[side-end blog]auto [blog-end];
+}
+
+.main-sideDiv {
+    grid-column: side/side-end;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 5vw 20vw 5vh;
+    grid-template-areas: ". shared .";
+    grid-template-rows: 20vh [image]50vh[image-end name] 10vh[name-end button] 20vh[button-end];
+}
+
+.main-sideDiv-profileImage {
+    grid-area: shared;
+    grid-row: image/image-end;
+}
+
+.main-sideDiv-profileImage img {
+    height: 100%;
+    width: 100%;
+}
+
+.main-sideDiv-name {
+    grid-area: shared;
+    grid-row: name/name-end;
+    background-color: cornflowerblue;
+}
+
+.main-sideDiv-buttons {
+    grid-area: shared;
+    grid-row: button/button-end;
+    display: grid;
+    grid-template-columns: 10vw 10vw;
+    align-items: center;
+}
+
+.main-sideDiv-buttons-a1 {
+    grid-column: 1/span 1;
+    background-color: aquamarine;
+}
+
+.main-sideDiv-buttons-a2 {
+    grid-column: 2/-1;
+    background-color: cyan;
+}
+
+.main-sideDiv-buttons a:hover {
+    cursor: pointer;
+}
+
+.main-blogDiv {
+    display: grid;
+    grid-template-columns: 2vw auto 2vw;
+    grid-template-rows: 2vh 10vh 4vh 34vh 48vh 2vh;
+    border: 1px solid wheat;
+    grid-template-areas: ". . ." ". title ." ". date ." ". image ." ". descrp ." ". . .";
+}
+
+.main-blogDiv-title {
+    grid-area: title;
+    background-color: darkgoldenrod;
+}
+
+.main-blogDiv-publishDate {
+    grid-area: date;
+    background-color: rgb(97, 8, 8);
+}
+
+.main-blogDiv-image {
+    grid-area: image;
+    background-color: indigo;
+}
+
+.main-blogDiv-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.main-blogDiv-description {
+    grid-area: descrp;
+    background-color: mediumvioletred;
+    overflow-y: scroll;
+}

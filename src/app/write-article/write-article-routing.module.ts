@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { WriteArticleComponent } from "./write-article.component";
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class WriteArticleRoutingModule { }
+export const routes: Routes = [
+  {
+    path: "article",
+    component: WriteArticleComponent
+  }
+];
+
+
