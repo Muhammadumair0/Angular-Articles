@@ -15,5 +15,17 @@ export const routes: Routes = [
   {
     path: "login",
     loadChildren: "./login/login.module#LoginModule"
+  },
+  {
+    path: "read",
+    loadChildren: "./read-articles/read-articles.module#ReadArticlesModule"
+  },
+  {
+    path: "write",
+    loadChildren: "./write-article/write-article.module#WriteArticleModule"
+  },
+  {
+    path: "update",
+    loadChildren: "./update-article/update-article.module#UpdateArticleModule"
   }
 ];

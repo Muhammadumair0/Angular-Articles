@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from "../shared/services/auth.service";
+import { ComponentsService } from "../shared/services/components.service";
+
 @Component({
   selector: 'app-read-articles',
   templateUrl: './read-articles.component.html',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadArticlesComponent implements OnInit {
 
-  constructor() { }
+  allData: any[];
+
+  constructor(private authService: AuthService,
+    private componentsService: ComponentsService) { }
 
   ngOnInit() {
+    this.authService.getAllData().subscribe(data => {
+      this.allData = data.results;
+    })
+  }
+  sendInfo(data) {
+    this.componentsService.getInfo(data);
   }
 
 }

@@ -1,16 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const apiRouter = require("./api-router");
+const apiRouter = require("./router/api-router");
+var cors = require('cors');
 
 function createExpressApp(database) {
 
     const app = express();
 
+    app.use(cors({ origin: 'http://localhost:4200' }));
     app.use(bodyParser.json());
-    app.use(express.static(path.join(__dirname, "public")));
+    app.use(bodyParser.urlencoded({ extended: false }));
     app.use(apiRouter(database));
-    // app.use("*", (req, res) => { //to give angular control of UI
+    // app.use(express.static(path.join(__dirname, "public")));
+    // app.use("*", (req, res) => {
 
     //     res.sendFile(path.join(__dirname, "public/index.html"));
 

@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { WriteArticleRoutingModule } from './write-article-routing.module';
+import { routes } from './write-article-routing.module';
+
+import { WriteArticleComponent } from "./write-article.component";
 
 @NgModule({
   imports: [
     CommonModule,
-    WriteArticleRoutingModule
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: []
+  declarations: [WriteArticleComponent]
 })
 export class WriteArticleModule { }

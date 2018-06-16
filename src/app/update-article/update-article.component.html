@@ -1,3 +1,51 @@
-<p>
-  update-article works!
-</p>
+<div class="main">
+  <div class="main-div">
+    <form class="main-div-form" [formGroup]="form" (submit)="onPostSubmit()">
+      <div class="main-div-form-div">
+        <div class="main-div-form-div-name">
+          <label class="main-div-form-div-name-label">Name: </label>
+          <input type="text" class="main-div-form-div-name-input" size="30" formControlName="username" name="username">
+          <em *ngIf="form.controls.username.dirty && form.controls.username?.errors" style="color:red;">Enter Valid UserName; min-max:10-20,no-space </em>
+        </div>
+        <div class="main-div-form-div-title">
+          <label class="main-div-form-div-title-label">Title</label>
+          <input type="text" class="main-div-form-div-title-input" size="40" formControlName="title" name="title">
+          <em *ngIf="form.controls.title.dirty && form.controls.title?.errors" style="color:red;">Enter Valid Title; min-max:20-30 </em>
+        </div>
+        <div class="main-div-form-div-profile">
+          <div class="main-div-form-div-profile-div">
+            <label class="main-div-form-div-profile-lable">Profile-Url: </label>
+            <input type="text" class="main-div-form-div-profile-input" size="50" #profile (ngModelChange)="profileValue(profile.value)"
+              formControlName="profileUrl" name="profileUrl">
+            <em *ngIf="form.controls.profileUrl.dirty && form.controls.profileUrl?.errors" style="color:red;">Must be a png or jpg url</em>
+          </div>
+          <div class="main-div-form-div-profile-image">
+            <img src={{profileUrl}}>
+          </div>
+        </div>
+        <div class="main-div-form-div-article">
+          <div class="main-div-form-div-article-div">
+            <label class="main-div-form-div-article-label">Aricle-image-Url: </label>
+            <input type="text" class="main-div-form-div-article-input" size="50" #article (ngModelChange)="articleValue(article.value)"
+              formControlName="articleUrl" name="articleUrl">
+            <em *ngIf="form.controls.articleUrl.dirty && form.controls.articleUrl?.errors" style="color:red;">Must be a png or jpg url</em>
+          </div>
+          <div class="main-div-form-div-article-image">
+            <img src={{articleUrl}}>
+          </div>
+        </div>
+
+        <div class="main-div-form-div-description">
+          <label class="main-div-form-div-description-label">Description:
+            <em *ngIf="(form.controls.post.dirty && form.controls.post?.errors)" style="color:red;">Minimum 120 Characters required</em>
+          </label>
+
+          <textarea cols="150" rows="15" class="main-div-form-div-description-ta" formControlName="post" name="post" #postVal (ngModelChange)="postText(postVal.value)">
+
+        </textarea>
+        </div>
+      </div>
+      <input type="submit" value="Update Article" class="main-div-form-button" [disabled]="!form.valid || processing">
+    </form>
+  </div>
+</div>
