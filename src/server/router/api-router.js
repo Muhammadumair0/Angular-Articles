@@ -1,7 +1,8 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const checkJWT = require("express-jwt");
+const ObjectId = require('mongodb').ObjectID;
+require('dotenv').config();
 
 function apiRouter(database) {
 
@@ -24,24 +25,42 @@ function apiRouter(database) {
     });
 
 
-    router.post("/api/user", (req, res) => {
+    router.post("/api/login", (req, res) => {
+        console.log("we are getting ", req.body);
+        const db = dataName.collection("users");
         if (!req.body.username) {
-            res.send({ status: 401, message: "Username not provided" });
-        } else if (!req.body.password) {
-            res.send({ status: 401, message: "Password not provided" });
-
+            res.json({ status: 401, message: "User is not available" });
+        }
+        else if (!req.body.password) {
+            res.json({ status: 401, message: "Password was not provided" });
         } else {
-            const db = dataName.collection("users");
-            db.findOne({ "name": req.body.username }, (err, results) => {
-                if (results == null || err) {
-                    res.send({ status: 401, message: "Username Not Found" });
+            db.findOne({ name: req.body.username }, (err, results) => {
+                if (results === null) {
+                    res.json({ status: 401, message: "Username is wrong" });
                 } else {
                     const passwordCheck = bcrypt.compareSync(req.body.password, results.password);
                     if (passwordCheck) {
-                        res.send({ status: 200, message: "Authentication Successful", results });
+                        const token = jwt.sign({ userId: results._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+                        res.json({ status: 200, message: "You are sucessfully logged In", username: results.name, token });
                     } else {
-                        res.send({ status: 404, message: "Wrong Password" });
+                        res.json({ status: 401, message: "You have entered wrong passwrod" });
                     }
+                }
+            });
+        }
+    });
+
+    router.use((req, res, next) => {
+        const token = req.headers['authorization'];
+        if (!token) {
+            res.json({ success: false, message: 'No token provided' });
+        } else {
+            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+                if (err) {
+                    res.json({ success: false, message: 'Token invalid: ' + err });
+                } else {
+                    req.decoded = decoded;
+                    next();
                 }
             });
         }
@@ -54,16 +73,24 @@ function apiRouter(database) {
         } else if (!req.body.description) {
             res.send({ status: 401, message: "Not description Provided for Article" })
         } else {
-            db.findOne({ "title": req.body.title }, (err, results) => {
-                if (results) {
-                    res.send({ status: 204, message: "Article Title not available!" });
-                } else {
-                    db.insertOne(req.body, (err, results) => {
-                        if (results == null || err) {
-                            res.send({ status: 201, message: "article not posted successuflly!!" });
+            db.findOne({ _id: ObjectId(req.decoded.userId) }, (err, results) => {
+                if (results == null || err) {
+                    res.send({ status: 404, message: "BAD request!!!" });
+                }
+                if (results.name == req.body.name) {
+                    db.findOne({ "title": req.body.title }, (err, results) => {
+                        if (results) {
+                            res.send({ status: 204, message: "Article Title not available!" });
                         } else {
-                            res.send({ status: 200, message: "Article successfully posted!" });
+                            db.insertOne(req.body, (err, results) => {
+                                if (results == null || err) {
+                                    res.send({ status: 201, message: "article not posted successuflly!!" });
+                                } else {
+                                    res.send({ status: 200, message: "Article successfully posted!" });
+                                }
+                            });
                         }
+
                     });
                 }
             });
@@ -72,29 +99,37 @@ function apiRouter(database) {
 
     router.put("/api/updateArticle", (req, res) => {
         const db = dataName.collection("users");
-        console.log(req.body.name, "or we have", req.body);
         if (!req.body.name) {
             res.send({ status: 401, message: "Username Not provided" })
         } else if (!req.body.title) {
             res.send({ status: 401, message: "No Title Provided for Article" })
         } else {
-            db.findOne({ name: req.body.name }, (err, results) => {
+            db.findOne({ _id: ObjectId(req.decoded.userId) }, (err, results) => {
                 if (results == null || err) {
-                    res.send({ status: 404, message: "UserName not matched!" });
-                } else {
-                    db.findOne({ title: req.body.title }, (err, results) => {
+                    res.send({ status: 404, message: "User Not Found!!" });
+                }
+                else if (results.name == req.body.name) {
+                    db.findOne({ name: req.body.name }, (err, results) => {
                         if (results == null || err) {
-                            res.send({ status: 404, message: "Title not matched!" });
+                            res.send({ status: 404, message: "UserName not matched!" });
                         } else {
-                            db.update({ name: req.body.name }, req.body, (err, results) => {
+                            db.findOne({ title: req.body.title }, (err, results) => {
                                 if (results == null || err) {
-                                    res.send({ message: "updation unsuccessful!!" });
+                                    res.send({ status: 404, message: "Title not matched!" });
                                 } else {
-                                    res.send({ status: 200, message: "article Updated Sucessfully!!" });
+                                    db.update({ name: req.body.name }, { $set: req.body }, (err, results) => {
+                                        if (results == null || err) {
+                                            res.send({ message: "updation unsuccessful!!" });
+                                        } else {
+                                            res.send({ status: 200, message: "article Updated Sucessfully!!" });
+                                        }
+                                    });
                                 }
                             });
                         }
                     });
+                } else {
+                    res.send({ status: 402, message: "Not the logged In user!!!" });
                 }
             });
         }

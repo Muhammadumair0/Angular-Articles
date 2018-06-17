@@ -86,11 +86,11 @@ export class WriteArticleComponent implements OnInit {
       "description": this.form.get('post').value,
       "publishDate": this.d.toDateString()
     }
-    console.log(user);
+   
 
 
     this.authService.postArtilce(user).subscribe(data => {
-
+      console.log(data);
       if (!data) {
         this.processing = false;
         this.enableForm();

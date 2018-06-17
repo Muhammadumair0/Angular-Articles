@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { CoreComponent } from "./core/core/core.component";
 
+import { AuthGuard } from "./gurads/auth.guard";
+import { UpdateAuthGuard } from "./gurads/update-auth.guard";
+
 export const routes: Routes = [
   {
     path: '',
@@ -22,10 +25,12 @@ export const routes: Routes = [
   },
   {
     path: "write",
-    loadChildren: "./write-article/write-article.module#WriteArticleModule"
+    loadChildren: "./write-article/write-article.module#WriteArticleModule",
+    canActivate: [AuthGuard]
   },
   {
     path: "update",
-    loadChildren: "./update-article/update-article.module#UpdateArticleModule"
+    loadChildren: "./update-article/update-article.module#UpdateArticleModule",
+    canActivate: [UpdateAuthGuard]
   }
 ];

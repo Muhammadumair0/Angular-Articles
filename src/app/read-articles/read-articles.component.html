@@ -6,9 +6,10 @@
     <div class="main-sideDiv-name">
       <h3>{{data.name}}</h3>
     </div>
-    <div class="main-sideDiv-buttons">
+    <div class="main-sideDiv-buttons" *ngIf="data.name == userMatch">
       <a class="main-sideDiv-buttons-a1" routerLink="/update/article" (click)="sendInfo(data)">Edit Article</a>
-      <a class="main-sideDiv-buttons-a2" routerLink="/create/article">Create New</a>
+      <a class="main-sideDiv-buttons-a2" routerLink="/write/article">Create New</a>
+      <a class="main-sideDiv-buttons-a3" (click)="logout()">LogOut</a>       
     </div>
   </div>
   <div class="main-blogDiv">

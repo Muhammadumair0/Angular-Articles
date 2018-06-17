@@ -13,6 +13,8 @@ import { CoreComponent } from './core/core/core.component';
 import { routes } from "./app.routing";
 import { AuthService } from "./shared/services/auth.service";
 import { ComponentsService } from "./shared/services/components.service";
+import { AuthGuard } from "./gurads/auth.guard"; 
+import { UpdateAuthGuard } from "./gurads/update-auth.guard"; 
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { ComponentsService } from "./shared/services/components.service";
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [AuthService, ComponentsService],
+  providers: [AuthService, ComponentsService, AuthGuard, UpdateAuthGuard],
   bootstrap: [AppComponent],
   exports: [BrowserModule]
 })

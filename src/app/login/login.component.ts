@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from "../shared/services/auth.service";
 import { Router } from '@angular/router';
-// import { AuthGuard } from '../../guards/auth.guard';
+import { AuthGuard } from "../gurads/auth.guard";
+import { UpdateAuthGuard } from "../gurads/update-auth.guard";
 
 @Component({
   selector: 'app-login',
@@ -20,67 +21,65 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    // private authGuard: AuthGuard
+    private authGuard: AuthGuard,
+    private uAuthGurad: UpdateAuthGuard
   ) { }
 
   ngOnInit() {
+    console.log(this.authGuard.redirectUrl);
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    // On page load, check if user was redirected to login
-    // if (this.authGuard.redirectUrl) {
-    // this.messageClass = 'alert alert-danger'; // Set error message: need to login
-    // this.message = 'You must be logged in to view that page.'; // Set message
-    // this.previousUrl = this.authGuard.redirectUrl; // Set the previous URL user was redirected from
-    // this.authGuard.redirectUrl = undefined; // Erase previous URL
-    // }
-  }
-
-
-  // Function to disable form
-  disableForm() {
-    this.form.controls['username'].disable(); // Disable username field
-    this.form.controls['password'].disable(); // Disable password field
-  }
-
-  // Function to enable form
-  enableForm() {
-    this.form.controls['username'].enable(); // Enable username field
-    this.form.controls['password'].enable(); // Enable password field
-  }
-
-  // Functiont to submit form and login user
-  onLoginSubmit() {
-    this.processing = true; // Used to submit button while is being processed
-    // this.disableForm(); // Disable form while being process
-    // Create user object from user's input
-    const user = {
-      username: this.form.get('username').value, // Username input field
-      password: this.form.get('password').value // Password input field
+    if (this.authGuard.redirectUrl) {
+      this.previousUrl = this.authGuard.redirectUrl;
+      this.authGuard.redirectUrl = undefined;
     }
+    if (this.uAuthGurad.goUrl) {
+      this.previousUrl = this.uAuthGurad.goUrl;
+      this.uAuthGurad.goUrl = undefined;
+    }
+  }
+
+
+
+  disableForm() {
+    this.form.controls['username'].disable();
+    this.form.controls['password'].disable();
+  }
+
+
+  enableForm() {
+    this.form.controls['username'].enable();
+    this.form.controls['password'].enable();
+  }
+
+
+  onLoginSubmit() {
+    this.processing = true;
+    this.disableForm();
+
+    const user = {
+      username: this.form.get('username').value,
+      password: this.form.get('password').value
+    }
+
     console.log(user);
-    // Function to send login data to API
+
     this.authService.login(user).subscribe((data) => {
-      // Check if response was a success or error
-      this.message = data.message;
       if (!data) {
-        this.processing = false; // Enable submit button
-        this.enableForm(); // Enable form for editting
+        this.processing = false;
+        this.enableForm();
         this.message = data.message;
       } else {
-        // Set success message
-        // Function to store user's token in client local storage
-        // this.authService.storeUserData(data.token, data.user);
-        // After 2 seconds, redirect to dashboard page
-        //  setTimeout(() => {
-        //     Check if user was redirected or logging in for first time
-        //    if (this.previousUrl) {
-        //      this.router.navigate([this.previousUrl]); // Redirect to page they were trying to view before
-        //    } else {
-        //      this.router.navigate(['/dashboard']); // Navigate to dashboard view
-        //    }
-        //  }, 2000);
+        this.authService.storeUserData(data.token, data.username);
+        setTimeout(() => {
+          if (this.previousUrl) {
+            this.router.navigate([this.previousUrl]);
+          } else {
+            this.router.navigate(['/home']);
+          }
+        }, 2000);
       }
     }
     );
