@@ -2,9 +2,9 @@
 
 ## Scripts to run
 
-1)npm run nodeit
+npm run nodeit
 
-2) ng serve
+ng serve
 
 
 ## Available Routes
