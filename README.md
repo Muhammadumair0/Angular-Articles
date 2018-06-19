@@ -1,6 +1,6 @@
 # LD-Readit master branch -> finalized
 
-###Application is connected to mlab - make sure internet is connected!
+### Application is connected to mlab - make sure internet is connected!
 
 ## Scripts to run
 
