@@ -2,6 +2,8 @@
 
 ## Scripts to run
 
+npm install
+
 npm run nodeit
 
 ng serve
