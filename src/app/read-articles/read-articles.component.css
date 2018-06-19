@@ -1,18 +1,34 @@
 .main {
     display: grid;
     grid-template-rows: 100vh;
-    border-bottom: 2px solid black;
-    background-color: rgb(105, 76, 8);
+    border-bottom: 2px solid #BED3CA;
     grid-template-columns: [side]30vw[side-end blog]auto [blog-end];
 }
 
 .main-sideDiv {
     grid-column: side/side-end;
-    background-color: red;
+    background-color: #1A1C18;
     display: grid;
     grid-template-columns: 5vw 20vw 5vh;
     grid-template-areas: ". shared .";
-    grid-template-rows: 20vh [image]50vh[image-end name] 10vh[name-end button] 20vh[button-end];
+    grid-template-rows: [home]20vh [home-end image]50vh[image-end name] 10vh[name-end button] 20vh[button-end];
+}
+
+.main-sideDiv-home {
+    grid-area: shared;
+    grid-row: home/home-end;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.main-sideDiv-home img {
+    height: 6vh;
+    width: 8vw;
+}
+
+.main-sideDiv-home img:hover {
+    cursor: pointer;
 }
 
 .main-sideDiv-profileImage {
@@ -28,7 +44,16 @@
 .main-sideDiv-name {
     grid-area: shared;
     grid-row: name/name-end;
-    background-color: cornflowerblue;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #A23D3B;
+    color: #DDDEDA;
+    font-family: 'font_condensed';
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    line-height: 1em;
+    text-transform: uppercase;
 }
 
 .main-sideDiv-buttons {
@@ -36,34 +61,85 @@
     grid-row: button/button-end;
     display: grid;
     grid-template-columns: 10vw 10vw;
+    grid-template-rows: 10vh 10vh;
     align-items: center;
 }
 
 .main-sideDiv-buttons-a1 {
     grid-column: 1/span 1;
-    background-color: aquamarine;
+    grid-row: 1/span 1;
 }
 
 .main-sideDiv-buttons-a2 {
     grid-column: 2/-1;
-    background-color: cyan;
+    grid-row: 1/span 1;
+}
+
+.main-sideDiv-buttons-a3 {
+    grid-row: 2/-1;
 }
 
 .main-sideDiv-buttons a:hover {
     cursor: pointer;
 }
 
+a {
+    -moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    -webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    box-shadow: inset 0px 1px 3px 0px #91b8b3;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+    background: -moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: -ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+    background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c', GradientType=0);
+    background-color: #768d87;
+    display: inline-block;
+    cursor: pointer;
+    color: #BED3CA;
+    font-family: Georgia;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 11px 23px;
+    text-decoration: none;
+}
+
+a:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+    background: -moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: -ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+    background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87', GradientType=0);
+    background-color: #6c7c7c;
+}
+
+a:active {
+    position: relative;
+    top: 1px;
+}
+
 .main-blogDiv {
+    grid-column: blog/blog-end;
+    background-color: #A23D3B;
     display: grid;
     grid-template-columns: 2vw auto 2vw;
     grid-template-rows: 2vh 10vh 4vh 34vh 48vh 2vh;
-    border: 1px solid wheat;
     grid-template-areas: ". . ." ". title ." ". date ." ". image ." ". descrp ." ". . .";
 }
 
 .main-blogDiv-title {
     grid-area: title;
-    background-color: darkgoldenrod;
+    background-color: #29272a;
+}
+
+.main-blogDiv-title h3 {
+    font-size: 1.3rem;
+    color: #767676;
+    font-family: "Roboto";
+    line-height: 1.2em;
 }
 
 .main-blogDiv-publishDate {
@@ -71,9 +147,20 @@
     background-color: rgb(97, 8, 8);
 }
 
+.main-blogDiv-publishDate h4 {
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-style: bold;
+    font-weight: 800;
+    font-size: 0.9vw;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #F2F1EE;
+    line-height: 1.1em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 .main-blogDiv-image {
     grid-area: image;
-    background-color: indigo;
 }
 
 .main-blogDiv-image img {
@@ -83,6 +170,20 @@
 
 .main-blogDiv-description {
     grid-area: descrp;
-    background-color: mediumvioletred;
+    background-color: #fff;
     overflow-y: scroll;
+}
+
+.main-blogDiv-description p {
+    color: rgba(65, 65, 65, 0.8);
+    font-family: 'Vollkorn', 'Times New Roman', serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 25px;
+}
+
+.main-blogDiv-title, .main-blogDiv-publishDate, .main-blogDiv-description {
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }

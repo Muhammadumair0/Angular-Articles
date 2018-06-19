@@ -1,16 +1,17 @@
 <div class="login">
-  <h1 class="login-heading">Login Here</h1>
+  <div class="login-div">
+    <img src="assets/readit.png" routerLink="/home">
+  </div>
   <form [formGroup]="form" (submit)="onLoginSubmit()">
     <div class="login-form-div">
       <div>
-        <label>UserName:</label>
-        <input type="text" class="login-form-div-input1" name="username" formControlName="username">
+        <input type="text" class="login-form-div-input1" placeholder="Enter Name" name="username" formControlName="username" size="35">
       </div>
       <div>
-        <label>Password:&nbsp;</label>
-        <input type="password" class="login-form-div-input2" name="password" formControlName="password">
+        <input type="password" class="login-form-div-input2" placeholder="Enter Password" name="password" formControlName="password"
+          size="35">
       </div>
     </div>
-    <input class="form-button" value="Login" type="submit">
+    <input [disabled]="!form.valid || processing" class="form-button" value="Login" type="submit">
   </form>
 </div>

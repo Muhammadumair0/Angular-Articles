@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { CoreComponent } from "./core/core/core.component";
+import { CoreComponent } from "./core/core-component/core.component";
 
 import { AuthGuard } from "./gurads/auth.guard";
 import { UpdateAuthGuard } from "./gurads/update-auth.guard";

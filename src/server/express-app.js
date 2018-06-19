@@ -10,14 +10,13 @@ function createExpressApp(database) {
 
     app.use(cors({ origin: 'http://localhost:4200' }));
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false }));
-    app.use(apiRouter(database));
     // app.use(express.static(path.join(__dirname, "public")));
     // app.use("*", (req, res) => {
 
     //     res.sendFile(path.join(__dirname, "public/index.html"));
 
     // });
+    app.use(apiRouter(database));
     return app;
 }
 

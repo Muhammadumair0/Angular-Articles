@@ -1,38 +1,44 @@
 .login {
     display: grid;
-    grid-template-rows: [heading]20vh[heading-end form] 80vh[form-end];
+    grid-template-rows: [logo]20vh[log-end form] 80vh[form-end];
 }
 
-.login-heading {
-    grid-row: heading/heading-end;
+.login-div {
+    grid-row: logo/log-end;
     display: grid;
     justify-items: center;
     align-items: center;
+    background: #1A1C18;
+}
+
+.login-div img {
+    height: 15vh;
+    width: 15vw;
+}
+
+.login-div img:hover {
+    cursor: pointer;
 }
 
 form {
-    background: red;
+    background: #A23D3B;
     grid-row: form/form-end;
     display: grid;
-    grid-template-rows: 25vh [input]25vh[input-end button] 5vh[button-end] 25vh;
     justify-items: center;
     align-items: center;
+    grid-template-rows: auto [input]25vh[input-end button] 5vh[button-end] auto;
 }
 
 .login-form-div {
     grid-row: input/input-end;
-    grid-gap: 2vh;
+    display: grid;
+    grid-gap: 1vh;
     align-items: center;
     justify-items: center;
 }
 
 .form-button {
     grid-row: button/button-end;
-}
-
-label {
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .form-button {
@@ -78,7 +84,30 @@ label {
     top: 1px;
 }
 
-.login-form-div-input1, .login-form-div-input2 {
+input {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: 1px solid #b7b7b7;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal 16px/normal "Lucida Console", Monaco, monospace;
+    color: #A23D3B;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(252, 252, 252, 1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2) inset;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/* .login-form-div-input1, .login-form-div-input2 {
     border-color: #cccccc;
     padding: 11px;
     font-size: 26px;
@@ -89,7 +118,7 @@ label {
     font-style: none;
     font-family: monospace;
     font-weight: bold;
-}
+} */
 
 .login-form-div-input1:focus, .login-form-div-input2:focus {
     outline: none;

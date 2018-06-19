@@ -14,12 +14,14 @@ export class ReadArticlesComponent implements OnInit {
 
   allData: any[];
   userMatch: string = localStorage.getItem("user");
+  checkAuth;
 
   constructor(private authService: AuthService,
     private componentsService: ComponentsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.checkAuth = this.authService.loggedIn();
     this.authService.getAllData().subscribe(data => {
       this.allData = data.results;
     })
@@ -30,6 +32,10 @@ export class ReadArticlesComponent implements OnInit {
 
   logout() {
     this.authService.logOut();
+    this.router.navigate(["/home"]);
+  }
+
+  homePage() {
     this.router.navigate(["/home"]);
   }
 

@@ -28,7 +28,7 @@ export class WriteArticleComponent implements OnInit {
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      username: new FormControl("", [
+      username: new FormControl(localStorage.getItem("user"), [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(20),
@@ -52,6 +52,7 @@ export class WriteArticleComponent implements OnInit {
         Validators.minLength(120)
       ])
     });
+    this.form.controls['username'].disable();
   }
 
   validateControl(controls) {
@@ -86,7 +87,7 @@ export class WriteArticleComponent implements OnInit {
       "description": this.form.get('post').value,
       "publishDate": this.d.toDateString()
     }
-   
+
 
 
     this.authService.postArtilce(user).subscribe(data => {
@@ -104,7 +105,6 @@ export class WriteArticleComponent implements OnInit {
   }
 
   disableForm() {
-    this.form.controls['username'].disable();
     this.form.controls['title'].disable();
     this.form.controls['profileUrl'].disable();
     this.form.controls['articleUrl'].disable();
@@ -112,7 +112,6 @@ export class WriteArticleComponent implements OnInit {
   }
 
   enableForm() {
-    this.form.controls['username'].enable();
     this.form.controls['title'].enable();
     this.form.controls['profileUrl'].enable();
     this.form.controls['articleUrl'].enable();

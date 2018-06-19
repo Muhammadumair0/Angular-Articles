@@ -1,15 +1,19 @@
 <div class="main" *ngFor="let data of allData">
   <div class="main-sideDiv">
+    <div class="main-sideDiv-home">
+      <img src="assets/home1.png" (click)="homePage()">
+    </div>
     <div class="main-sideDiv-profileImage">
       <img src={{data.imageUrl.profile}}>
     </div>
     <div class="main-sideDiv-name">
       <h3>{{data.name}}</h3>
     </div>
-    <div class="main-sideDiv-buttons" *ngIf="data.name == userMatch">
-      <a class="main-sideDiv-buttons-a1" routerLink="/update/article" (click)="sendInfo(data)">Edit Article</a>
-      <a class="main-sideDiv-buttons-a2" routerLink="/write/article">Create New</a>
-      <a class="main-sideDiv-buttons-a3" (click)="logout()">LogOut</a>       
+    <div class="main-sideDiv-buttons">
+      <a class="main-sideDiv-buttons-a1" routerLink="/update/article" (click)="sendInfo(data)" *ngIf="data.name == userMatch">Edit Article</a>
+      <a class="main-sideDiv-buttons-a1" routerLink="/login" *ngIf="!checkAuth">Log In</a>
+      <a class="main-sideDiv-buttons-a2" routerLink="/write/article" *ngIf="data.name == userMatch">Create New</a>
+      <a class="main-sideDiv-buttons-a3" (click)="logout()" *ngIf="data.name == userMatch">LogOut</a>
     </div>
   </div>
   <div class="main-blogDiv">
@@ -17,7 +21,7 @@
       <h3>{{data.title}}</h3>
     </div>
     <div class="main-blogDiv-publishDate">
-      <h4>{{data.publishDate}}</h4>
+      <h4>PUBLISHED DATE: {{data.publishDate}}</h4>
     </div>
     <div class="main-blogDiv-image">
       <img src={{data.imageUrl.image}}>

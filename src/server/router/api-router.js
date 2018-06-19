@@ -2,7 +2,6 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const ObjectId = require('mongodb').ObjectID;
-require('dotenv').config();
 
 function apiRouter(database) {
 
@@ -15,7 +14,7 @@ function apiRouter(database) {
         const db = dataName.collection("users");
 
         db.find({}).toArray((err, results) => {
-            if (err) {
+            if (err || results == null) {
                 console.log("Here are the errors", err);
             } else {
                 res.send({ "status": 200, message: `getting response`, results });
@@ -26,7 +25,6 @@ function apiRouter(database) {
 
 
     router.post("/api/login", (req, res) => {
-        console.log("we are getting ", req.body);
         const db = dataName.collection("users");
         if (!req.body.username) {
             res.json({ status: 401, message: "User is not available" });
@@ -37,11 +35,15 @@ function apiRouter(database) {
             db.findOne({ name: req.body.username }, (err, results) => {
                 if (results === null) {
                     res.json({ status: 401, message: "Username is wrong" });
-                } else {
+                }
+                else if (!results.password) {
+                    res.send({ status: 404, message: "You are not admin" });
+                }
+                else {
                     const passwordCheck = bcrypt.compareSync(req.body.password, results.password);
                     if (passwordCheck) {
                         const token = jwt.sign({ userId: results._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
-                        res.json({ status: 200, message: "You are sucessfully logged In", username: results.name, token });
+                        res.json({ status: 200, message: "You are sucessfully logged In", token, "username": results.name });
                     } else {
                         res.json({ status: 401, message: "You have entered wrong passwrod" });
                     }
@@ -49,6 +51,7 @@ function apiRouter(database) {
             });
         }
     });
+
 
     router.use((req, res, next) => {
         const token = req.headers['authorization'];
@@ -117,7 +120,7 @@ function apiRouter(database) {
                                 if (results == null || err) {
                                     res.send({ status: 404, message: "Title not matched!" });
                                 } else {
-                                    db.update({ name: req.body.name }, { $set: req.body }, (err, results) => {
+                                    db.updateOne({ title: req.body.title }, { $set: req.body }, (err, results) => {
                                         if (results == null || err) {
                                             res.send({ message: "updation unsuccessful!!" });
                                         } else {

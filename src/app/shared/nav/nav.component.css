@@ -1,33 +1,37 @@
 .nav {
+    list-style-type: none;
+    background-color: #1A1C18;
+    height: 10vh;
     display: grid;
-    align-items: center;
+    grid-gap: 1vw;
+    grid-template-columns: [message]20vw[message-end] auto [l1]15vw[l1-end l2] 15vw[l2-end] 10vw;
+}
+
+li {
+    letter-spacing: 0.1em;
+    color: #BED3CA;
+    font-family: 'font_condensed';
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 1em;
+    border-bottom: 2px solid #A23D3B;
+    display: grid;
     justify-items: center;
-    grid-template-rows: auto;
-    background-color: blue;
-    height: 100%;
-    grid-template-columns: [starts] 10vw[starts-end] 50vw [first]10vw[first-end second] 10vw[second-end third] 10vw[third-end];
+    align-items: center;
+}
+
+li:not(.nav-start) {
+    cursor: pointer;
 }
 
 .nav-start {
-    grid-column: starts/starts-end;
+    grid-column: message/message-end;
 }
 
 .nav-first {
-    grid-column: first/first-end;
+    grid-column: l1/l1-end;
 }
 
 .nav-second {
-    grid-column: second/second-end;
-}
-
-.nav-third {
-    grid-column: third/third-end;
-}
-
-nav {
-    list-style-type: none;
-}
-
-nav li {
-    display: inline;
+    grid-column: l2/l2-end;
 }

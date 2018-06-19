@@ -1,27 +1,35 @@
-# Readit
+# LD-Readit master branch -> finalized
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
+## Scripts to run
 
-## Development server
+1)npm run nodeit
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2) ng serve
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Available Routes
 
-## Build
+http://localhost:4200/home
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+http://localhost:4200/read/articles
 
-## Running unit tests
+http://localhost:4200/write/article
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+http://localhost:4200/update/article
 
-## Running end-to-end tests
+http://localhost:4200/login
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## User Details
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Name: Adam Armstrong           Password: ahmed155
+
+others:
+
+Name: Shawn Wilkins           Password: ahmed123
+
+Name: Dawson Farmer           Password: ahmed144
+
+## Description
+
+Create/update links will be available only on logged in user profile!! 

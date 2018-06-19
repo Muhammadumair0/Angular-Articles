@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   processing = false;
   form;
   previousUrl;
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -67,10 +67,10 @@ export class LoginComponent implements OnInit {
     console.log(user);
 
     this.authService.login(user).subscribe((data) => {
-      if (!data) {
+      console.log(data);
+      if (data.status !== 200) {
         this.processing = false;
         this.enableForm();
-        this.message = data.message;
       } else {
         this.authService.storeUserData(data.token, data.username);
         setTimeout(() => {

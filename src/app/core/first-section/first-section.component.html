@@ -1,6 +1,16 @@
 <div class="first">
   <app-nav class="first-nav"></app-nav>
-  <div class="first-button">
-    <button>Login</button>
+  <div class="first-div">
+    <div class="first-div-image">
+      <img src="assets/readit.png">
+    </div>
+    <h2 class="first-div-heading">
+      <span>WE CAN'T SEE THE</span>
+      <span>AMAZING IDEAS</span>
+      <span>BREWING BETWEEN YOUR EARS.</span>
+      <span class="first-div-heading-span">/WE NEED YOU TO TELL US/</span>
+    </h2>
+    <button class="first-div-button" *ngIf="!isLoggedIn" routerLink="/login">Login Here</button>
+    <button class="first-div-button" *ngIf="isLoggedIn" routerLink="/read/articles">{{userName}}</button>
   </div>
 </div>

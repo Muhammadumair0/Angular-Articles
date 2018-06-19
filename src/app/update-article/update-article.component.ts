@@ -31,7 +31,7 @@ export class UpdateArticleComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      username: new FormControl(localStorage.getItem("name"), [
+      username: new FormControl(localStorage.getItem("user"), [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(20),

@@ -1,0 +1,23 @@
+.app {
+    display: grid;
+    grid-template-rows: [first]100vh [first-end second]50vh [second-end third]30vh [third-end];
+}
+
+.app-first-section {
+    height: 100vh;
+    grid-row: first/first;
+    position: relative;
+    top: 0;
+    opacity: 0.8;
+    z-index: 500;
+}
+
+.app-second-section {
+    grid-row: second/second-end;
+    height: 50vh;
+}
+
+.app-footer {
+    grid-row: third/third-end;
+    height: 30vh;
+}

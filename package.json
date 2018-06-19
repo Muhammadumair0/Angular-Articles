@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "sample": "node src/server/test-user/seed-db.js",
-    "run-nodemon": "nodemon src/server/index.js"
+    "nodeit": "nodemon src/server/index.js"
   },
   "private": true,
   "dependencies": {

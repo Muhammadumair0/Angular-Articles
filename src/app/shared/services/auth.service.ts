@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from "@angular/http";
 import { tokenNotExpired } from "angular2-jwt";
-import { environment } from "../../../environments/environment";
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
 
-  domain: string = environment.domain;
+  domain: string = "http://localhost:3000/";
 
   authToken;
   user;
@@ -31,6 +30,7 @@ export class AuthService {
   login(data) {
 
     return this.http.post(this.domain + "api/login", data, this.RequestOptions()).map((res) => {
+      console.log(res.json());
       return res.json();
     });
 

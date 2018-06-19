@@ -1,0 +1,65 @@
+.main {
+    display: grid;
+    height: 100%;
+    grid-template-columns: [team]30vw [team-end one]auto [one-end two]auto [two-end three]auto [three-end four]auto[four-end];
+}
+
+.main-div-team {
+    grid-column: team/team-end;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: #F2F1EE;
+}
+
+.main-div-team-img {
+    height: 25vh;
+    width: 25vw;
+}
+
+.main-div-one, .main-div-two, .main-div-three, .main-div-four {
+    display: grid;
+    grid-template-rows: 40vh auto;
+}
+
+img:not(.main-div-team-img) {
+    height: 100%;
+    width: 100%;
+    grid-column: 1/span 1;
+}
+
+p {
+    grid-column: 2/-1;
+    text-align: center;
+    font-family: "Gotham SSm A", "Gotham SSm B";
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: #F2F1EE;
+    background-color: #1A1C18;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 1.2vw;
+}
+
+.main-div-one {
+    grid-column: one/one-end;
+    height: 100%;
+}
+
+.main-div-two {
+    grid-column: two/two-end;
+    height: 100%;
+}
+
+.main-div-three {
+    grid-column: three/three-end;
+    height: 100%;
+}
+
+.main-div-four {
+    grid-column: four/four-end;
+    height: 100%;
+}

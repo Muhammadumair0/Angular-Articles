@@ -8,13 +8,14 @@ import { FirstSectionComponent } from './core/first-section/first-section.compon
 import { SecondSectionComponent } from './core/second-section/second-section.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { CoreComponent } from './core/core/core.component';
+import { CoreComponent } from './core/core-component/core.component';
 
 import { routes } from "./app.routing";
 import { AuthService } from "./shared/services/auth.service";
 import { ComponentsService } from "./shared/services/components.service";
 import { AuthGuard } from "./gurads/auth.guard"; 
-import { UpdateAuthGuard } from "./gurads/update-auth.guard"; 
+import { UpdateAuthGuard } from "./gurads/update-auth.guard";
+import { HomePageVideoComponent } from './core/home-page-video/home-page-video.component'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UpdateAuthGuard } from "./gurads/update-auth.guard";
     SecondSectionComponent,
     FooterComponent,
     NavComponent,
-    CoreComponent
+    CoreComponent,
+    HomePageVideoComponent
   ],
   imports: [
     BrowserModule,
