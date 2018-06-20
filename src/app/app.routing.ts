@@ -32,5 +32,9 @@ export const routes: Routes = [
     path: "update",
     loadChildren: "./update-article/update-article.module#UpdateArticleModule",
     canActivate: [UpdateAuthGuard]
+  },
+  {
+    path: '**',
+    component: CoreComponent,
   }
 ];
