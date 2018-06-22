@@ -58,9 +58,10 @@ export class AuthService {
     });
   }
 
-  storeUserData(token, user) {
+  storeUserData(token, user, url) {
     localStorage.setItem("token", token);
     localStorage.setItem("user", user);
+    localStorage.setItem("imageUrl", url);
     this.authToken = token;
     this.user = user;
   }
@@ -68,6 +69,7 @@ export class AuthService {
   logOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("imageUrl");
   }
 
   loggedIn() {
