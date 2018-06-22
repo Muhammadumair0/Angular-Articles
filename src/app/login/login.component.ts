@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         this.processing = false;
         this.enableForm();
       } else {
-        this.authService.storeUserData(data.token, data.username);
+        this.authService.storeUserData(data.token, data.username, data.profile);
         setTimeout(() => {
           if (this.previousUrl) {
             this.router.navigate([this.previousUrl]);
