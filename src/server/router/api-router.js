@@ -43,7 +43,7 @@ function apiRouter(database) {
                     const passwordCheck = bcrypt.compareSync(req.body.password, results.password);
                     if (passwordCheck) {
                         const token = jwt.sign({ userId: results._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
-                        res.json({ status: 200, message: "You are sucessfully logged In", token, "username": results.name });
+                        res.json({ status: 200, message: "You are sucessfully logged In", token, "username": results.name, "profile": results.imageUrl.profile });
                     } else {
                         res.json({ status: 401, message: "You have entered wrong passwrod" });
                     }
