@@ -26,7 +26,6 @@ export class WriteArticleComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-
     this.form = this.formBuilder.group({
       username: new FormControl(localStorage.getItem("user"), [
         Validators.required,
@@ -39,7 +38,7 @@ export class WriteArticleComponent implements OnInit {
         Validators.minLength(15),
         Validators.maxLength(30)
       ]),
-      profileUrl: new FormControl("", [
+      profileUrl: new FormControl(localStorage.getItem("imageUrl"), [
         Validators.required,
         this.validateImage
       ]),
@@ -49,10 +48,11 @@ export class WriteArticleComponent implements OnInit {
       ]),
       post: new FormControl("", [
         Validators.required,
-        Validators.minLength(120)
+        Validators.minLength(140)
       ])
     });
     this.form.controls['username'].disable();
+    this.form.controls['profileUrl'].disable();
   }
 
   validateControl(controls) {
@@ -106,7 +106,6 @@ export class WriteArticleComponent implements OnInit {
 
   disableForm() {
     this.form.controls['title'].disable();
-    this.form.controls['profileUrl'].disable();
     this.form.controls['articleUrl'].disable();
     this.form.controls['post'].disable();
   }
