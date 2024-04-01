@@ -1,41 +1,43 @@
-# LD-Readit master branch -> finalized
+# LD-readIt
 
-### Application is connected to mlab - make sure internet is connected!
+LD-readIt is a web application built using Angular and Node.js, providing users with a platform to read and write articles. It incorporates user authentication and interacts with a MongoDB database hosted on mLab. The application offers various routes for different functionalities, including reading, writing, and updating articles, as well as user login.
 
-## Scripts to run
+## Setup Instructions
 
-npm install
+1. **Installation:**
+    ```bash
+    npm install
+    ```
 
-npm run nodeit
+2. **Start Node.js Server:**
+    ```bash
+    npm run nodeit
+    ```
 
-ng serve
-
+3. **Serve Angular Application:**
+    ```bash
+    ng serve
+    ```
 
 ## Available Routes
-
-http://localhost:4200/home
-
-http://localhost:4200/read/articles
-
-http://localhost:4200/write/article
-
-http://localhost:4200/update/article
-
-http://localhost:4200/login
-
+- **Home:** [http://localhost:4200/home](http://localhost:4200/home)
+- **Read Articles:** [http://localhost:4200/read/articles](http://localhost:4200/read/articles)
+- **Write Article:** [http://localhost:4200/write/article](http://localhost:4200/write/article)
+- **Update Article:** [http://localhost:4200/update/article](http://localhost:4200/update/article)
+- **Login:** [http://localhost:4200/login](http://localhost:4200/login)
 
 ## User Details
+- **Adam Armstrong**
+  - Username: Adam
+  - Password: ahmed155
 
-Name: Adam Armstrong           Password: ahmed155
+- **Shawn Wilkins**
+  - Username: Shawn
+  - Password: ahmed123
 
-others:
+- **Dawson Farmer**
+  - Username: Dawson
+  - Password: ahmed144
 
-Name: Shawn Wilkins           Password: ahmed123
-
-Name: Dawson Farmer           Password: ahmed144
-
-## Description
-
-Create/update links will be available only on logged in user profile!! 
-
-### Can use DevTools to check responses
+## Additional Information
+- Create and update links will be available only on the logged-in user's profile.
