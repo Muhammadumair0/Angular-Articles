@@ -1,6 +1,6 @@
-# LD-readIt
+# Angular Articles
 
-LD-readIt is a web application built using Angular and Node.js, providing users with a platform to read and write articles. It incorporates user authentication and interacts with a MongoDB database hosted on mLab. The application offers various routes for different functionalities, including reading, writing, and updating articles, as well as user login.
+Angular Articles is a web application built using Angular and Node.js, providing users with a platform to read and write articles. It incorporates user authentication and interacts with a MongoDB database hosted on mLab. The application offers various routes for different functionalities, including reading, writing, and updating articles, as well as user login.
 
 ## Setup Instructions
 
